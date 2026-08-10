@@ -1,0 +1,102 @@
+:root {
+  color-scheme: dark;
+
+  /* Provisional Stage 2 colour values; final values require target-device testing. */
+  --ops-colour-base: #071427;
+  --ops-colour-base-deep: #040c18;
+  --ops-colour-surface: #0d2038;
+  --ops-colour-surface-raised: #122a45;
+  --ops-colour-surface-interactive: #12334c;
+  --ops-colour-surface-interactive-hover: #19435e;
+  --ops-colour-border: #31546d;
+  --ops-colour-text: #f0f8fc;
+  --ops-colour-text-muted: #b9cbd8;
+  --ops-colour-active: #5addeb;
+  --ops-colour-verified: #4fd7ba;
+  --ops-colour-unresolved: #f2bd61;
+  --ops-colour-warning: #ff8278;
+  --ops-colour-focus: #fff29a;
+
+  --ops-space-1: 0.25rem;
+  --ops-space-2: 0.5rem;
+  --ops-space-3: 0.75rem;
+  --ops-space-4: 1rem;
+  --ops-space-5: 1.25rem;
+  --ops-space-6: 1.5rem;
+  --ops-space-8: 2rem;
+  --ops-space-10: 2.5rem;
+  --ops-space-12: 3rem;
+
+  /* System stacks remain provisional until font testing on the target tablet. */
+  --ops-font-family-ui: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ops-font-family-mono: ui-monospace, 'Cascadia Mono', 'Segoe UI Mono', monospace;
+  --ops-font-size-small: 0.875rem;
+  --ops-font-size-body: 1.0625rem;
+  --ops-font-size-heading: clamp(2rem, 4vw, 3.5rem);
+  --ops-line-height-body: 1.55;
+  --ops-line-height-heading: 1.08;
+  --ops-font-weight-normal: 400;
+  --ops-font-weight-bold: 700;
+
+  --ops-border-width: 1px;
+  --ops-radius-small: 0.5rem;
+  --ops-radius-medium: 0.875rem;
+  --ops-radius-large: 1.25rem;
+  --ops-shadow-soft: 0 1rem 3rem rgb(0 0 0 / 24%);
+  --ops-shadow-frame: 0 1.5rem 5rem rgb(0 0 0 / 38%);
+
+  --ops-focus-width: 3px;
+  --ops-focus-offset: 3px;
+  --ops-control-size: 3rem;
+  --ops-content-max-width: 96rem;
+
+  --ops-safe-area-top: env(safe-area-inset-top, 0px);
+  --ops-safe-area-right: env(safe-area-inset-right, 0px);
+  --ops-safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --ops-safe-area-left: env(safe-area-inset-left, 0px);
+
+  font-family: var(--ops-font-family-ui);
+  font-size: var(--ops-font-size-body);
+  line-height: var(--ops-line-height-body);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-base);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-block-size: 100%;
+  margin: 0;
+}
+
+html {
+  background: var(--ops-colour-base);
+}
+
+body {
+  min-inline-size: 20rem;
+  background: var(--ops-colour-base);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: var(--ops-focus-width) solid var(--ops-colour-focus);
+  outline-offset: var(--ops-focus-offset);
+}
+
+::selection {
+  color: var(--ops-colour-base-deep);
+  background: var(--ops-colour-active);
+}

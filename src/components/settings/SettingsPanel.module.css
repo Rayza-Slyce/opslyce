@@ -1,0 +1,188 @@
+.screen {
+  min-block-size: 100%;
+  display: grid;
+  place-items: center;
+  padding: clamp(var(--ops-space-5), 4vw, var(--ops-space-10));
+  background: linear-gradient(145deg, var(--ops-colour-surface), var(--ops-colour-base));
+}
+
+.panel {
+  inline-size: min(46rem, 100%);
+  max-block-size: calc(100dvh - 4rem);
+  overflow: auto;
+  display: grid;
+  gap: var(--ops-space-6);
+  padding: clamp(var(--ops-space-5), 4vw, var(--ops-space-8));
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-large);
+  background: var(--ops-colour-surface-raised);
+  box-shadow: var(--ops-shadow-frame);
+}
+
+.panel h1,
+.panel h2,
+.panel p {
+  margin-block: 0;
+}
+
+.heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--ops-space-4);
+}
+
+.heading h1 {
+  margin-block-start: var(--ops-space-1);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: var(--ops-line-height-heading);
+}
+
+.eyebrow {
+  color: var(--ops-colour-active);
+  font-size: var(--ops-font-size-small);
+  font-weight: var(--ops-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.close,
+.save,
+.restartButton,
+.resetButton,
+.cancelButton,
+.confirmButton {
+  min-block-size: var(--ops-control-size);
+  padding-inline: var(--ops-space-4);
+  border: var(--ops-border-width) solid var(--ops-colour-active);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-interactive);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}
+
+.preferences {
+  display: grid;
+  gap: var(--ops-space-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.preferences legend,
+.codenameForm h2,
+.progress h2 {
+  margin-block-end: var(--ops-space-2);
+  font-size: 1.15rem;
+  font-weight: var(--ops-font-weight-bold);
+}
+
+.preferences label {
+  min-block-size: var(--ops-control-size);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ops-space-4);
+  padding: var(--ops-space-3) var(--ops-space-4);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-medium);
+  background: var(--ops-colour-surface);
+}
+
+.preferences small {
+  display: block;
+  color: var(--ops-colour-text-muted);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--ops-space-2);
+  font-weight: var(--ops-font-weight-bold);
+}
+
+.toggle input {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  accent-color: var(--ops-colour-active);
+}
+
+.codenameForm {
+  display: grid;
+  gap: var(--ops-space-3);
+  padding-block-start: var(--ops-space-5);
+  border-block-start: var(--ops-border-width) solid var(--ops-colour-border);
+}
+
+.codenameForm label {
+  font-weight: var(--ops-font-weight-bold);
+}
+
+.codenameForm input {
+  min-block-size: var(--ops-control-size);
+  padding: var(--ops-space-3) var(--ops-space-4);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-base-deep);
+}
+
+.codenameForm input[aria-invalid='true'] {
+  border-color: var(--ops-colour-warning);
+}
+
+.error {
+  color: var(--ops-colour-warning);
+}
+
+.saved {
+  color: var(--ops-colour-verified);
+}
+
+.save {
+  justify-self: start;
+}
+
+.progress {
+  display: grid;
+  gap: var(--ops-space-3);
+  padding-block-start: var(--ops-space-5);
+  border-block-start: var(--ops-border-width) solid var(--ops-colour-border);
+}
+
+.progress p,
+.panel[role='alertdialog'] > p {
+  color: var(--ops-colour-text-muted);
+}
+
+.progressAction {
+  display: grid;
+  gap: var(--ops-space-2);
+}
+
+.restartButton,
+.resetButton,
+.confirmButton {
+  justify-self: start;
+  border-color: var(--ops-colour-warning);
+}
+
+.panel[role='alertdialog'] {
+  inline-size: min(38rem, 100%);
+}
+
+.confirmationActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ops-space-3);
+}
+
+.close:hover,
+.save:hover,
+.restartButton:hover,
+.resetButton:hover,
+.cancelButton:hover,
+.confirmButton:hover {
+  background: var(--ops-colour-surface-interactive-hover);
+}

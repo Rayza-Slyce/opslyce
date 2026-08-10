@@ -1,0 +1,127 @@
+.verification {
+  min-block-size: 100%;
+  display: grid;
+  place-items: center;
+  padding: var(--ops-space-6);
+  color: var(--ops-colour-verified);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: var(--ops-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.verification div {
+  display: grid;
+  gap: var(--ops-space-3);
+}
+
+.debrief {
+  min-block-size: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--ops-space-3);
+}
+
+.dialogue,
+.fieldRecord,
+.reward {
+  min-inline-size: 0;
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-medium);
+  background: rgb(13 32 56 / 92%);
+}
+
+.dialogue {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  align-items: center;
+  gap: var(--ops-space-3);
+  padding: var(--ops-space-3);
+}
+
+.dialogue img {
+  inline-size: 5rem;
+  block-size: 6rem;
+  object-fit: contain;
+}
+
+.dialogue .byte {
+  transform: scaleX(-1);
+}
+
+.dialogue h2,
+.dialogue p,
+.fieldRecord h2,
+.fieldRecord p,
+.fieldRecord dl,
+.reward h2,
+.reward p {
+  margin: 0;
+}
+
+.dialogue h2,
+.fieldRecord h2,
+.reward h2 {
+  margin-block-end: var(--ops-space-2);
+  color: var(--ops-colour-active);
+  font-size: 1rem;
+}
+
+.fieldRecord,
+.reward {
+  min-block-size: 0;
+  overflow: auto;
+  padding: var(--ops-space-4);
+}
+
+.fieldRecord dl {
+  display: grid;
+  gap: var(--ops-space-2);
+  margin-block-start: var(--ops-space-3);
+}
+
+.fieldRecord dl div {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: var(--ops-space-3);
+}
+
+.fieldRecord dd {
+  margin: 0;
+  color: var(--ops-colour-text-muted);
+}
+
+.reward {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(6rem, 30%, 9rem);
+  align-items: center;
+  gap: var(--ops-space-4);
+}
+
+.reward img {
+  inline-size: 100%;
+  max-block-size: 9rem;
+  object-fit: contain;
+}
+
+@media (max-height: 599px) {
+  .debrief {
+    gap: var(--ops-space-2);
+  }
+
+  .dialogue,
+  .fieldRecord,
+  .reward {
+    padding: var(--ops-space-2);
+  }
+
+  .dialogue {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+
+  .dialogue img {
+    inline-size: 3.5rem;
+    block-size: 4rem;
+  }
+}

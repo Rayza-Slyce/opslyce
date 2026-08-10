@@ -1,0 +1,357 @@
+.workspace {
+  block-size: 100%;
+  min-block-size: 0;
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 2fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: var(--ops-space-3);
+}
+.objective,
+.byteDock,
+.toolArea,
+.resumeSummary {
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-medium);
+  background: rgb(5 18 31 / 96%);
+}
+.leftColumn {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  min-block-size: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ops-space-3);
+}
+.objective {
+  min-block-size: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: var(--ops-space-4);
+}
+.objective > p:first-child {
+  color: var(--ops-colour-active);
+  font-weight: var(--ops-font-weight-bold);
+  letter-spacing: 0.08em;
+}
+.objective h2 {
+  margin-block: var(--ops-space-2);
+  font-size: 1rem;
+}
+.milestones {
+  display: grid;
+  gap: var(--ops-space-2);
+  margin-block-start: var(--ops-space-4);
+  color: var(--ops-colour-verified);
+  font-size: var(--ops-font-size-small);
+}
+.byteDock {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: clamp(3.75rem, 32%, 5.5rem) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--ops-space-2);
+  min-block-size: 7rem;
+  padding: var(--ops-space-3);
+  border-color: rgb(90 221 235 / 34%);
+}
+.bytePortrait {
+  inline-size: 100%;
+  max-block-size: 6.5rem;
+  object-fit: contain;
+  transform: scaleX(-1);
+}
+.byteCopy {
+  min-inline-size: 0;
+}
+.byteCopy p {
+  margin: var(--ops-space-1) 0 0;
+  color: var(--ops-colour-text-muted);
+  font-size: var(--ops-font-size-small);
+}
+.byteDock button {
+  grid-column: 1 / -1;
+  min-block-size: 2.75rem;
+  padding-inline: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-active);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-interactive);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}
+.auxiliary,
+.tabs,
+.toolNavigation,
+.resumeActions,
+.panelHeading {
+  display: flex;
+  gap: var(--ops-space-2);
+}
+.auxiliary {
+  grid-column: 2;
+  grid-row: 1;
+  flex-wrap: wrap;
+}
+.auxiliary button,
+.tabs button,
+.browserOpener,
+.panel button,
+.resumeActions button {
+  min-block-size: var(--ops-control-size);
+  padding-inline: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-interactive);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}
+.tabs button[aria-selected='true'] {
+  border-color: var(--ops-colour-active);
+  background: rgb(19 67 85);
+}
+.toolNavigation {
+  flex: 0 0 auto;
+  align-items: stretch;
+}
+.browserOpener {
+  min-block-size: var(--ops-control-size);
+  padding-inline: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-interactive);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}
+.tabs button[aria-disabled='true'],
+.panel button:disabled,
+.panel input:disabled {
+  opacity: 0.62;
+  cursor: not-allowed;
+}
+.toolArea {
+  grid-column: 2;
+  grid-row: 2;
+  min-block-size: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: var(--ops-space-3);
+}
+.tabs {
+  flex: 0 0 auto;
+}
+.focusedBrowser {
+  z-index: 4;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.focusedBrowser > * {
+  min-inline-size: 0;
+  min-block-size: 0;
+  flex: 1 1 auto;
+}
+.toolPanel,
+.panel {
+  min-block-size: 0;
+  flex: 1 1 auto;
+  padding: var(--ops-space-4);
+  border: var(--ops-border-width) solid rgb(90 221 235 / 18%);
+  border-radius: var(--ops-radius-small);
+  background: rgb(8 24 39 / 94%);
+}
+.toolPanel {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.panel {
+  overflow: auto;
+}
+.guidance,
+.missionControl {
+  display: grid;
+  align-content: start;
+  gap: var(--ops-space-3);
+}
+.missionControl {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.missionControl label,
+.missionControl > p,
+.missionControl > div {
+  grid-column: 1 / -1;
+}
+.guidance section,
+.guidance p,
+.missionControl p {
+  margin: 0;
+}
+.guidance h3 {
+  margin-block: 0 var(--ops-space-2);
+  color: var(--ops-colour-active);
+}
+.guidance button,
+.missionControl button {
+  justify-self: start;
+}
+.missionControl input {
+  min-inline-size: 0;
+  inline-size: 100%;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+}
+.verificationStatus {
+  color: var(--ops-colour-verified);
+  font-weight: var(--ops-font-weight-bold);
+  letter-spacing: 0.04em;
+}
+.toolPanel dl div {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.4fr) 1fr;
+  gap: var(--ops-space-3);
+  padding-block: var(--ops-space-2);
+}
+.toolPanel dd {
+  margin: 0;
+}
+.evidenceList {
+  min-block-size: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  display: grid;
+  grid-auto-rows: max-content;
+  align-content: start;
+  gap: var(--ops-space-3);
+  margin-block-start: 0;
+}
+.evidenceCard {
+  display: grid;
+  gap: var(--ops-space-2);
+  padding: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-small);
+  background: rgb(5 18 31 / 92%);
+}
+.evidenceCard h3,
+.evidenceCard p {
+  margin: 0;
+}
+.routeCopy {
+  min-inline-size: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--ops-space-2);
+}
+.routeCopy input {
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: var(--ops-control-size);
+  padding-inline: var(--ops-space-3);
+  color: var(--ops-colour-active);
+  background: rgb(3 15 26 / 96%);
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+}
+.copyStatus {
+  color: var(--ops-colour-verified);
+  font-size: var(--ops-font-size-small);
+}
+.evidenceCard h3,
+.evidenceValue {
+  color: var(--ops-colour-active);
+}
+.evidenceCard button {
+  min-block-size: var(--ops-control-size);
+  justify-self: start;
+  padding-inline: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-active);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-interactive);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}
+.connected {
+  color: var(--ops-colour-verified);
+}
+.panelHeading {
+  justify-content: space-between;
+  align-items: center;
+}
+.panel label,
+.toolPanel label {
+  display: block;
+  margin-block: var(--ops-space-4) var(--ops-space-2);
+}
+.panel input,
+.toolPanel input {
+  min-block-size: var(--ops-control-size);
+  inline-size: min(28rem, 100%);
+  margin-inline-end: var(--ops-space-2);
+}
+.panel .missionControl input {
+  min-inline-size: 0;
+  inline-size: 100%;
+  margin-inline-end: 0;
+}
+.resumeSummary {
+  max-inline-size: 48rem;
+  margin: auto;
+  padding: var(--ops-space-6);
+}
+.resumeSummary dl div {
+  margin-block: var(--ops-space-4);
+}
+.resumeSummary dd {
+  margin: var(--ops-space-1) 0 0;
+  color: var(--ops-colour-text-muted);
+}
+.resumeActions {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+@media (max-height: 599px) {
+  .workspace {
+    grid-template-columns: minmax(12rem, 0.55fr) minmax(0, 2fr);
+    gap: var(--ops-space-2);
+  }
+  .objective,
+  .byteDock,
+  .toolPanel,
+  .panel {
+    padding: var(--ops-space-2);
+  }
+  .leftColumn {
+    gap: var(--ops-space-2);
+  }
+  .byteDock {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-block-size: 0;
+    align-content: start;
+  }
+  .bytePortrait {
+    display: none;
+  }
+  .byteCopy {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  .byteDock button {
+    grid-column: auto;
+    min-block-size: 2.6rem;
+  }
+  .byteDock button:only-of-type {
+    grid-column: 1 / -1;
+  }
+  .auxiliary button,
+  .tabs button,
+  .browserOpener {
+    min-block-size: 2.6rem;
+  }
+}

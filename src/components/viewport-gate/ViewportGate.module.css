@@ -1,0 +1,47 @@
+.gate {
+  min-block-size: 100dvh;
+  display: grid;
+  place-items: center;
+  padding-block-start: max(var(--ops-space-6), var(--ops-safe-area-top));
+  padding-inline-end: max(var(--ops-space-6), var(--ops-safe-area-right));
+  padding-block-end: max(var(--ops-space-6), var(--ops-safe-area-bottom));
+  padding-inline-start: max(var(--ops-space-6), var(--ops-safe-area-left));
+  background:
+    radial-gradient(circle at 50% 20%, rgb(49 106 132 / 25%), transparent 48%),
+    var(--ops-colour-base-deep);
+}
+
+.message {
+  inline-size: min(32rem, 100%);
+  padding: clamp(var(--ops-space-6), 7vw, var(--ops-space-10));
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-large);
+  background: var(--ops-colour-surface);
+  box-shadow: var(--ops-shadow-soft);
+  text-align: center;
+}
+
+.message h1,
+.message p {
+  margin-block: 0;
+}
+
+.message h1 {
+  margin-block-start: var(--ops-space-3);
+  font-size: clamp(1.75rem, 7vw, 2.75rem);
+  line-height: var(--ops-line-height-heading);
+  text-wrap: balance;
+}
+
+.message h1 + p {
+  margin-block-start: var(--ops-space-4);
+  color: var(--ops-colour-text-muted);
+}
+
+.eyebrow {
+  color: var(--ops-colour-active);
+  font-size: var(--ops-font-size-small);
+  font-weight: var(--ops-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

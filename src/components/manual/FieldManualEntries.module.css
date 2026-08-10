@@ -1,0 +1,39 @@
+.manual {
+  display: grid;
+  gap: var(--ops-space-4);
+}
+
+.section {
+  display: grid;
+  gap: var(--ops-space-2);
+}
+
+.entries {
+  display: grid;
+  gap: var(--ops-space-2);
+  margin: 0;
+}
+
+.entry {
+  padding: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-small);
+  background: rgb(8 24 39 / 82%);
+}
+
+.entry dt {
+  color: var(--ops-colour-active);
+  font-weight: var(--ops-font-weight-bold);
+}
+
+.entry dd {
+  margin: var(--ops-space-1) 0 0;
+}
+
+.empty {
+  display: grid;
+  place-content: center;
+  gap: var(--ops-space-3);
+  min-block-size: 12rem;
+  text-align: center;
+}

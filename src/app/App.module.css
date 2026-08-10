@@ -1,0 +1,20 @@
+.stage {
+  block-size: 100%;
+  min-block-size: 100%;
+  position: relative;
+}
+
+.storageNotice {
+  max-inline-size: min(42rem, calc(100% - 2rem));
+  position: absolute;
+  z-index: 10;
+  inset-block-start: var(--ops-space-4);
+  inset-inline: 0;
+  margin: 0 auto;
+  padding: var(--ops-space-3) var(--ops-space-4);
+  border: var(--ops-border-width) solid var(--ops-colour-unresolved);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: rgb(41 31 15 / 96%);
+  box-shadow: var(--ops-shadow-soft);
+}

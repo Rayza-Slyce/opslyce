@@ -1,0 +1,33 @@
+.viewport {
+  min-block-size: 100dvh;
+  background:
+    radial-gradient(circle at 50% 0%, rgb(26 68 94 / 32%), transparent 52%),
+    linear-gradient(145deg, var(--ops-colour-base), var(--ops-colour-base-deep));
+}
+
+.safeArea {
+  block-size: 100dvh;
+  min-block-size: 100dvh;
+  display: grid;
+  padding-block-start: max(var(--ops-space-4), var(--ops-safe-area-top));
+  padding-inline-end: max(var(--ops-space-4), var(--ops-safe-area-right));
+  padding-block-end: max(var(--ops-space-4), var(--ops-safe-area-bottom));
+  padding-inline-start: max(var(--ops-space-4), var(--ops-safe-area-left));
+}
+
+.frame {
+  inline-size: min(100%, var(--ops-content-max-width));
+  block-size: 100%;
+  min-block-size: 0;
+  margin-inline: auto;
+  overflow: hidden;
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-large);
+  background: linear-gradient(
+    160deg,
+    var(--ops-colour-surface-raised),
+    var(--ops-colour-surface) 48%,
+    var(--ops-colour-base) 130%
+  );
+  box-shadow: var(--ops-shadow-frame);
+}

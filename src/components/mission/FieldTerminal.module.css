@@ -1,0 +1,192 @@
+.terminal {
+  min-block-size: 0;
+  block-size: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(9.5rem, 22%, 12.5rem);
+  gap: var(--ops-space-2);
+}
+.terminalMain {
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ops-space-2);
+}
+.interaction p {
+  margin: 0;
+}
+.commandRail {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--ops-space-2);
+  padding-inline-start: var(--ops-space-2);
+  border-inline-start: var(--ops-border-width) solid rgb(90 221 235 / 20%);
+}
+.commandRail > strong {
+  color: var(--ops-colour-text-muted);
+  font-size: var(--ops-font-size-small);
+  font-weight: var(--ops-font-weight-bold);
+}
+.commandGuide {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  overflow-x: hidden;
+}
+.commandGuide summary {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  display: flex;
+  align-items: center;
+  color: var(--ops-colour-text);
+  cursor: pointer;
+}
+.guideList {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  display: grid;
+  gap: var(--ops-space-1);
+  margin: var(--ops-space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.guideList li {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+}
+.guideRow {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  min-inline-size: 0;
+  display: grid;
+  grid-template-columns: minmax(2.75rem, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--ops-space-2);
+  padding: var(--ops-space-2);
+  text-align: start;
+  white-space: normal;
+}
+.guideRow code {
+  min-inline-size: 0;
+  color: var(--ops-colour-active);
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  font-weight: var(--ops-font-weight-bold);
+}
+.guideRow span {
+  min-inline-size: 0;
+  color: var(--ops-colour-text-muted);
+  font-size: var(--ops-font-size-small);
+  font-weight: var(--ops-font-weight-normal);
+  overflow-wrap: anywhere;
+}
+.commandRail button,
+.terminalObject {
+  min-block-size: 2.75rem;
+  padding-inline: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-interactive);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}
+.transcript {
+  min-block-size: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: var(--ops-space-3);
+  border: var(--ops-border-width) solid rgb(90 221 235 / 18%);
+  border-radius: var(--ops-radius-small);
+  background: rgb(2 11 20 / 88%);
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  white-space: pre-wrap;
+}
+.interaction + .interaction {
+  margin-block-start: var(--ops-space-3);
+}
+.terminalObject {
+  display: block;
+  inline-size: fit-content;
+  min-block-size: 2.75rem;
+  margin-block: var(--ops-space-1);
+  padding-inline: var(--ops-space-2);
+  border-color: transparent;
+  color: var(--ops-colour-active);
+  background: transparent;
+  font-family: inherit;
+  text-align: start;
+}
+.terminalObject:hover,
+.terminalObject:focus-visible {
+  border-color: var(--ops-colour-active);
+  background: rgb(19 67 85 / 45%);
+}
+.submitted,
+.folder,
+.path {
+  color: var(--ops-colour-active);
+}
+.warning,
+.guidance {
+  color: var(--ops-colour-warning);
+}
+.commandForm {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: auto minmax(8rem, 1fr) auto;
+  align-items: center;
+  gap: var(--ops-space-2);
+}
+.label {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.prompt {
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+}
+.commandForm input,
+.commandForm button {
+  min-block-size: var(--ops-control-size);
+}
+.commandForm input {
+  min-inline-size: 0;
+  padding-inline: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: rgb(3 15 26 / 96%);
+}
+.commandForm button {
+  padding-inline: var(--ops-space-4);
+  border: var(--ops-border-width) solid var(--ops-colour-active);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-interactive);
+  font-weight: var(--ops-font-weight-bold);
+}
+@media (max-height: 599px) {
+  .terminal {
+    grid-template-columns: minmax(0, 1fr) clamp(8.5rem, 20%, 10rem);
+  }
+  .commandRail {
+    gap: var(--ops-space-1);
+  }
+  .prompt {
+    font-size: var(--ops-font-size-small);
+  }
+}

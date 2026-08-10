@@ -1,0 +1,87 @@
+.title {
+  min-block-size: 100%;
+  display: grid;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-image:
+    linear-gradient(90deg, rgb(3 10 19 / 94%) 0%, rgb(4 13 24 / 82%) 34%, transparent 68%),
+    linear-gradient(0deg, rgb(3 10 19 / 55%), transparent 45%),
+    url('/assets/environments/title-hq-threshold.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.content {
+  inline-size: min(31rem, 52%);
+  min-block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(var(--ops-space-5), 3.5vh, var(--ops-space-8));
+  padding: clamp(var(--ops-space-6), 4.5vw, var(--ops-space-12));
+}
+
+.logo {
+  inline-size: min(25rem, 100%);
+  block-size: auto;
+}
+
+.headingBlock h1,
+.headingBlock p {
+  margin-block: 0;
+}
+
+.headingBlock h1 {
+  margin-block-start: var(--ops-space-2);
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  line-height: var(--ops-line-height-heading);
+  text-wrap: balance;
+}
+
+.headingBlock h1 + p {
+  margin-block-start: var(--ops-space-3);
+  color: var(--ops-colour-text-muted);
+}
+
+.eyebrow {
+  color: var(--ops-colour-active);
+  font-size: var(--ops-font-size-small);
+  font-weight: var(--ops-font-weight-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.actions {
+  inline-size: min(21rem, 100%);
+  display: grid;
+  gap: var(--ops-space-3);
+}
+
+.actions button {
+  min-block-size: var(--ops-control-size);
+  padding: var(--ops-space-3) var(--ops-space-5);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}
+
+.primaryAction {
+  border: var(--ops-border-width) solid var(--ops-colour-active);
+  background: rgb(8 46 67 / 92%);
+  box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 24%);
+}
+
+.primaryAction:hover {
+  background: rgb(14 65 87 / 96%);
+}
+
+.secondaryAction {
+  border: var(--ops-border-width) solid var(--ops-colour-border);
+  background: rgb(7 20 39 / 82%);
+}
+
+.secondaryAction:hover {
+  background: rgb(18 42 69 / 92%);
+}

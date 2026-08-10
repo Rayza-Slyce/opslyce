@@ -1,0 +1,13 @@
+dist
+coverage
+node_modules
+playwright-report
+test-results
+pnpm-lock.yaml
+public/assets
+art-reference
+art-source
+AGENTS.md
+README.md
+ASSET_LICENCES.md
+docs
