@@ -1,12 +1,13 @@
 import { registerSW } from 'virtual:pwa-register';
-
-export const PWA_UPDATE_READY_EVENT = 'opslyce:pwa-update-ready';
+import { announcePwaUpdateReady, configurePwaUpdater } from './pwaUpdate';
 
 export function registerPwa(): void {
-  registerSW({
+  const updateSW = registerSW({
     immediate: true,
     onNeedRefresh() {
-      window.dispatchEvent(new CustomEvent(PWA_UPDATE_READY_EVENT));
+      announcePwaUpdateReady();
     }
   });
+
+  configurePwaUpdater(() => updateSW(true));
 }

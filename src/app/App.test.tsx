@@ -14,6 +14,7 @@ import {
 } from '../storage/localSaveStorage';
 import { App } from './App';
 import { GameEngineProvider } from './GameEngineProvider';
+import { configurePwaUpdater, PWA_UPDATE_READY_EVENT } from './pwa/pwaUpdate';
 
 class MemoryStorage implements KeyValueStorage {
   readonly values = new Map<string, string>();
@@ -1350,5 +1351,29 @@ describe('responsive gates', () => {
 
     expect(screen.getByRole('heading', { name: 'Use a larger screen' })).toBeVisible();
     expect(screen.queryByRole('heading', { name: 'HQ Dashboard' })).not.toBeInTheDocument();
+  });
+});
+
+describe('PWA update notice', () => {
+  it('offers a player-controlled update on the title without blocking normal play', async () => {
+    const user = userEvent.setup();
+    let updateCalls = 0;
+
+    configurePwaUpdater(() => {
+      updateCalls += 1;
+      return Promise.resolve();
+    });
+
+    renderAppAt(1024, 700);
+    fireEvent(window, new Event(PWA_UPDATE_READY_EVENT));
+
+    expect(screen.getByText('OpSlyce update ready')).toBeVisible();
+    expect(screen.getByRole('button', { name: 'Enter HQ' })).toBeVisible();
+
+    await user.click(screen.getByRole('button', { name: 'Update now' }));
+    await waitFor(() => expect(updateCalls).toBe(1));
+
+    await user.click(screen.getByRole('button', { name: 'Later' }));
+    expect(screen.queryByText('OpSlyce update ready')).not.toBeInTheDocument();
   });
 });

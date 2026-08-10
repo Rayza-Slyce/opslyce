@@ -18,3 +18,55 @@
   background: rgb(41 31 15 / 96%);
   box-shadow: var(--ops-shadow-soft);
 }
+
+.updateNotice {
+  position: absolute;
+  z-index: 20;
+  inset-inline: var(--ops-space-4);
+  inset-block-end: var(--ops-space-4);
+  max-inline-size: min(44rem, calc(100% - 2rem));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ops-space-3);
+  padding: var(--ops-space-3) var(--ops-space-4);
+  border: var(--ops-border-width) solid var(--ops-colour-active);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: rgb(7 20 39 / 98%);
+  box-shadow: var(--ops-shadow-soft);
+}
+
+.updateNotice p {
+  min-inline-size: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--ops-space-1);
+}
+
+.updateNotice strong {
+  color: var(--ops-colour-active);
+}
+
+.updateNotice span {
+  color: var(--ops-colour-text-muted);
+  font-size: var(--ops-font-size-small);
+}
+
+.updateNoticeActions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--ops-space-2);
+}
+
+.updateNoticeActions button {
+  min-block-size: var(--ops-control-size);
+  padding-inline: var(--ops-space-3);
+  border: var(--ops-border-width) solid var(--ops-colour-active);
+  border-radius: var(--ops-radius-small);
+  color: var(--ops-colour-text);
+  background: var(--ops-colour-surface-raised);
+  font-weight: var(--ops-font-weight-bold);
+  cursor: pointer;
+}

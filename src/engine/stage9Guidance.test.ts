@@ -85,6 +85,8 @@ describe('Stage 9 Byte guidance', () => {
     expect(once.relatedErrorStreak).toEqual({ hintId: 'H-001', count: 1 });
     const twice = recordRelatedError(once, 'H-001');
     expect(twice.relatedErrorStreak).toEqual({ hintId: 'H-001', count: 2 });
+    const thrice = recordRelatedError(twice, 'H-001');
+    expect(thrice.relatedErrorStreak).toEqual({ hintId: 'H-001', count: 2 });
     expect(revealHintLevel(twice, 'H-001', 'nudge').relatedErrorStreak).toBeNull();
   });
 

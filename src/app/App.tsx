@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { isRestartableOps001Progression } from '../profile/localProfile';
 import { ApplicationFrame } from '../components/app-frame/ApplicationFrame';
 import { CodenameRegistration } from '../components/codename/CodenameRegistration';
@@ -18,6 +18,12 @@ import { ViewportGate } from '../components/viewport-gate/ViewportGate';
 import { useViewportState } from './viewport/useViewportState';
 import { useGameEngine } from './useGameEngine';
 import { useOpSlyceAudio } from '../audio/useOpSlyceAudio';
+import {
+  applyPwaUpdate,
+  dismissPwaUpdateReady,
+  isPwaUpdateReady,
+  PWA_UPDATE_READY_EVENT
+} from './pwa/pwaUpdate';
 import styles from './App.module.css';
 
 export function App() {
@@ -66,8 +72,20 @@ export function App() {
   } = useGameEngine();
   const viewportState = useViewportState();
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [pwaUpdateReady, setPwaUpdateReady] = useState(isPwaUpdateReady);
   const [codenameDraft, setCodenameDraft] = useState('');
   useOpSlyceAudio(state, settingsOpen);
+
+  useEffect(() => {
+    const handleUpdateReady = () => setPwaUpdateReady(true);
+    window.addEventListener(PWA_UPDATE_READY_EVENT, handleUpdateReady);
+
+    return () => {
+      window.removeEventListener(PWA_UPDATE_READY_EVENT, handleUpdateReady);
+    };
+  }, []);
+
+  const showPwaUpdateNotice = pwaUpdateReady && !settingsOpen && state.screen === 'title';
 
   if (viewportState.state !== 'supported-landscape') {
     return <ViewportGate state={viewportState.state} />;
@@ -205,6 +223,33 @@ export function App() {
   return (
     <ApplicationFrame engineStatus={state.status}>
       <div className={styles['stage']}>
+        {showPwaUpdateNotice ? (
+          <aside className={styles['updateNotice']} aria-label="OpSlyce update ready">
+            <p role="status">
+              <strong>OpSlyce update ready</strong>
+              <span>A newer version is available. Your saved progress is safe.</span>
+            </p>
+            <div className={styles['updateNoticeActions']}>
+              <button
+                type="button"
+                onClick={() => {
+                  void applyPwaUpdate().catch(() => undefined);
+                }}
+              >
+                Update now
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  dismissPwaUpdateReady();
+                  setPwaUpdateReady(false);
+                }}
+              >
+                Later
+              </button>
+            </div>
+          </aside>
+        ) : null}
         {state.storageNotice === null ? null : (
           <p className={styles['storageNotice']} role="status">
             {state.storageNotice}

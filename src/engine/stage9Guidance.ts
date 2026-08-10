@@ -73,12 +73,7 @@ export function recordRelatedError(
 ): Ops001ActiveCheckpoint {
   if (resolveOps001HintContext(checkpoint) !== hintId) return checkpoint;
   if (getRevealedHintLevel(checkpoint, hintId) !== null) return checkpoint;
-  const count =
-    checkpoint.relatedErrorStreak?.hintId === hintId
-      ? checkpoint.relatedErrorStreak.count === 1
-        ? 2
-        : 2
-      : 1;
+  const count = checkpoint.relatedErrorStreak?.hintId === hintId ? 2 : 1;
   return { ...checkpoint, relatedErrorStreak: { hintId, count } };
 }
 
