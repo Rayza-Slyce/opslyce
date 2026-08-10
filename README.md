@@ -4,6 +4,13 @@
 
 Players become authorised OpSlyce operatives and investigate fictional incidents using a simulated Terminal, simulated Browser and Evidence Locker. The game introduces authentic cyber concepts and real command names while keeping every system safely contained inside an authored fictional environment.
 
+**[Play the live demo](https://opslyce.rayza-slyce.workers.dev)**
+
+Best experienced on a landscape tablet or larger display.
+
+![OpSlyce HQ title screen](public/readme/opslyce-title.png)
+
+
 ## Playable demo
 
 The current build contains one complete operation:
@@ -25,6 +32,8 @@ The demo includes:
 - original procedural sound effects and HQ ambience
 - installable PWA support
 - offline save/resume support
+
+![OpSlyce Recruitment Day gameplay showing the simulated Terminal and Byte](public/readme/opslyce-gameplay.png)
 
 ## Safety by design
 
