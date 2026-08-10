@@ -17,7 +17,7 @@ The demo includes:
 - simulated Terminal and virtual filesystem
 - simulated internal Browser
 - Evidence Locker
-- real command names including `ls`, `cd`, `cat`, `grep`, `clear`, `whoami` and `history`
+- Terminal commands in the current demo: `help`, `ls`, `cd`, `cat` and `clear`
 - staged **Ask Byte** guidance
 - local save, reload and resume
 - restartable operation progress
@@ -109,6 +109,6 @@ Core gameplay, persistence, procedural audio and automated offline PWA acceptanc
 
 ## Licence
 
-No open-source licence has been granted.
+This repository is publicly viewable, but no open-source licence has been granted.
 
-The source code and included assets remain reserved unless explicitly stated otherwise.
+Unless explicitly stated otherwise, the source code and included assets remain all rights reserved.
